@@ -15,17 +15,27 @@
         this.pelamar = new List<Freelance>(); // Inisialisasi list pelamar
     }
 
-    public void AddPelamar(Freelance pelamar)
+    public void AddPelamar(Freelance pelamars)
     {
-        this.pelamar.Add(pelamar);
+        pelamar.Add(pelamars);
     }
 
     public void GetPelamar()
     {
-        for (int i = 0; i < pelamar.Count; i++)
+        Console.WriteLine($"Jumlah pelamar untuk lowongan {judul}: {pelamar.Count}");
+        if (pelamar.Count == 0)
         {
-            Console.WriteLine($"Pelamar {i + 1}: Nama: {pelamar[i].GetUsername()}");
+            Console.WriteLine("Belum ada pelamar.");
+            return;
         }
+        else
+        {
+            foreach (Freelance pelamar in this.pelamar)
+            {
+                Console.WriteLine($"Nama: {pelamar.GetUsername}");
+            }
+        }
+
     }
 
     public string GetJudul()

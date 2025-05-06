@@ -216,6 +216,7 @@ namespace TubesFreelance
                     if (loggedInFreelancer != null)
                     {
                         Console.WriteLine("Login berhasil!");
+                        Console.WriteLine($"Selamat Datang {loggedInFreelancer.GetUsername()}");
                         while (true)
                         {
                             //Menu Pelamar__________________________________________________________________________________________________
@@ -235,8 +236,9 @@ namespace TubesFreelance
                                 {
                                     if (lowongan.GetJudul().ToLower() == judul.ToLower())
                                     {
-                                        lowongan.AddPelamar(loggedInFreelancer);
+                                        Console.WriteLine($"DEBUG: Alamat lowongan {lowongan.GetJudul()}: {lowongan.GetHashCode()}");
                                         lowonganDipilih = lowongan;
+                                        lowonganDipilih.AddPelamar(loggedInFreelancer);
                                         break;
                                     }
                                 }
@@ -247,7 +249,6 @@ namespace TubesFreelance
                                         throw new Exception("Lowongan tidak ditemukan.");
                                     }
                                     loggedInFreelancer.melamarLowongan(lowonganDipilih);
-                                    semuaLowongan.Remove(lowonganDipilih);
                                     Console.WriteLine("Berhasil melamar lowongan.");
                                 }
                                 catch (Exception e)

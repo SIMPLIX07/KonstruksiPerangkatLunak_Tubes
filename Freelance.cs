@@ -87,7 +87,6 @@ public class Freelance : IUser
 
     public void melamarLowongan(Lowongan lowongan)
     {
-        lowongan.AddPelamar(this);  // Menambahkan diri (freelancer) ke daftar pelamar lowongan
         lowonganDilamar.Add(lowongan);
         Console.WriteLine("Berhasil melamar lowongan: " + lowongan.GetJudul());
     }
